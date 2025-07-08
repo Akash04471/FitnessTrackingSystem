@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Fitness Tracker - Home</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body class="bg-gradient-to-br from-green-50 to-blue-100 text-gray-900 font-sans leading-relaxed">
+
+  <header class="bg-teal-600 text-white p-4 flex flex-wrap justify-between items-center shadow-md">
+    <h1 class="text-xl font-bold">Fitness Tracking System</h1>
+    <button class="md:hidden block text-white" onclick="document.getElementById('menu').classList.toggle('hidden')">
+      <i class="fas fa-bars"></i>
+    </button>
+    <nav id="menu" class="w-full mt-2 md:w-auto md:mt-0 hidden md:flex">
+      <a href="index.html" class="flex items-center text-white mx-3 font-bold hover:underline"><i class="fas fa-home mr-1"></i>Home</a>
+      <a href="gallery.html" class="flex items-center text-white mx-3 font-bold hover:underline"><i class="fas fa-image mr-1"></i>Gallery</a>
+      <a href="places.html" class="flex items-center text-white mx-3 font-bold hover:underline"><i class="fas fa-map-marker-alt mr-1"></i>Places</a>
+      <a href="contact.html" class="flex items-center text-white mx-3 font-bold hover:underline"><i class="fas fa-envelope mr-1"></i>Contact</a>
+    </nav>
+  </header>
+
+  <section class="relative h-[500px] text-white text-center flex flex-col justify-center items-center overflow-hidden">
+    <div class="absolute inset-0 bg-black/50 z-10"></div>
+    <img src="https://source.unsplash.com/1600x900/?fitness,health" alt="Fitness Background" class="absolute inset-0 w-full h-full object-cover z-0" />
+    <div class="relative z-20 px-4">
+      <h2 class="text-4xl md:text-5xl font-bold mb-4">Explore Your Fitness Journey</h2>
+      <p class="text-lg mb-6">Discover new destinations to stay active and healthy!</p>
+      <a href="gallery.html" class="bg-white text-teal-600 px-6 py-3 rounded-md font-bold hover:bg-teal-100 transition">Explore Now</a>
+    </div>
+  </section>
+
+  <section class="p-8 bg-white rounded-lg shadow-md mt-8">
+    <h2 class="text-2xl font-bold text-teal-600 mb-4">What is Fitness Tracking?</h2>
+    <p class="mb-4 text-gray-700">Fitness tracking refers to the use of technology to monitor and record fitness-related metrics such as distance walked or run, calorie consumption, and in some cases heartbeat and quality of sleep. Devices such as smartphones, smartwatches, and wearable fitness trackers have revolutionized the way people manage their health and wellbeing.</p>
+    <ul class="list-disc list-inside text-gray-700">
+      <li>Set and track your fitness goals effectively</li>
+      <li>Monitor your daily activity and health stats</li>
+      <li>Get real-time feedback on your performance</li>
+      <li>Stay motivated with achievement badges and community challenges</li>
+    </ul>
+  </section>
+
+  <section class="p-8">
+    <h2 class="text-2xl font-bold text-teal-600 mb-4">Watch Our Promo</h2>
+    <video class="w-1/2 rounded-xl" controls>
+      <source src="D:\1MCA\FSD\LAB2\3327959-hd_1920_1080_24fps.mp4"type="video/mp4">
+      <track src="D:\1MCA\FSD\LAB2\3327959-hd_1920_1080_24fps.mp4.vtt" kind="subtitles" srclang="en" label="English">
+      Your browser does not support the video tag.
+    </video>
+  </section>
+
+  <section class="p-8 bg-white rounded-xl shadow-md mt-10">
+    <h2 class="text-2xl font-bold text-teal-600 mb-4">Live Health Tips</h2>
+    <div id="tips" class="grid gap-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3"></div>
+  </section>
+
+  <script>
+    const fitnessTips = [
+      { title: "Stay Consistent", body: "Track your workouts daily and aim for at least 30 minutes of physical activity every day." },
+      { title: "Hydration is Key", body: "Ensure you're drinking enough water—at least 2-3 liters a day to keep your body functioning optimally." },
+      { title: "Monitor Your Sleep", body: "Use your fitness tracker to analyze your sleep and aim for 7-8 hours of quality rest each night." },
+      { title: "Set Realistic Goals", body: "Start with small, achievable goals and gradually increase intensity to avoid burnout." },
+      { title: "Check Your Heart Rate", body: "Use your tracker to keep an eye on your heart rate zones for optimized fat burn and endurance training." },
+      { title: "Celebrate Your Progress", body: "Review your weekly stats and celebrate milestones to stay motivated and consistent." }
+    ];
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const container = document.getElementById("tips");
+      fitnessTips.forEach(tip => {
+        const div = document.createElement("div");
+        div.className = "bg-teal-100 p-4 rounded shadow hover:bg-teal-200 transition";
+        div.innerHTML = `<h3 class='font-bold text-lg mb-2'>${tip.title}</h3><p>${tip.body}</p>`;
+        container.appendChild(div);
+      });
+    });
+  </script>
+
+  <section class="p-8 mt-8 bg-teal-100 rounded-lg shadow">
+    <h2 class="text-2xl font-bold text-teal-700 mb-4">Benefits of Using a Fitness Tracker</h2>
+    <div class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="bg-white p-4 rounded shadow">
+        <i class="fas fa-shoe-prints text-teal-600 text-2xl mb-2"></i>
+        <h3 class="font-bold text-lg mb-2">Activity Monitoring</h3>
+        <p>Track your steps, active minutes, and exercise sessions.</p>
+      </div>
+      <div class="bg-white p-4 rounded shadow">
+        <i class="fas fa-burn text-teal-600 text-2xl mb-2"></i>
+        <h3 class="font-bold text-lg mb-2">Calorie Tracking</h3>
+        <p>Monitor your calorie intake and output to manage weight effectively.</p>
+      </div>
+      <div class="bg-white p-4 rounded shadow">
+        <i class="fas fa-bed text-teal-600 text-2xl mb-2"></i>
+        <h3 class="font-bold text-lg mb-2">Sleep Quality</h3>
+        <p>Analyze your sleep cycles and improve your rest for better health.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="bg-black text-white text-center p-6 mt-12">
+    <div class="mb-2">
+      <svg xmlns="http://www.w3.org/2000/svg" class="mx-auto h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 11c0 1.1-.9 2-2 2s-2-.9-2-2 2-3 2-5 2 2 2 5z" />
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 2a10 10 0 00-10 10c0 3.866 3.582 7.488 9.6 10.32.3.144.636.144.936 0C18.418 19.488 22 15.866 22 12A10 10 0 0012 2z" />
+      </svg>
+    </div>
+    &copy; 2025 Akashdeep Dey
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" /> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Fitness Tracker - About</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <style>
+    .fade-in {
+      animation: fadeIn 1s ease-in-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+  </style>
+</head>
+<body class="bg-gray-100 text-gray-900 font-sans leading-relaxed">
+
+  <header class="bg-teal-600 text-white p-4 flex flex-wrap justify-between items-center shadow-md">
+    <h1 class="text-xl font-bold flex items-center"><i class="fas fa-info-circle mr-2"></i>About</h1>
+    <button id="menu-btn" class="md:hidden block text-white text-2xl" onclick="document.getElementById('menu').classList.toggle('hidden')">
+      <i class="fas fa-bars"></i>
+    </button>
+    <nav id="menu" class="hidden w-full mt-2 md:flex md:w-auto md:mt-0 text-center">
+      <a href="index.html" class="block md:inline-block text-white mx-3 font-bold hover:underline"><i class="fas fa-home mr-1"></i>Home</a>
+      <a href="gallery.html" class="block md:inline-block text-white mx-3 font-bold hover:underline"><i class="fas fa-info mr-1"></i>Gallery</a>
+      <a href="places.html" class="block md:inline-block text-white mx-3 font-bold hover:underline"><i class="fas fa-cogs mr-1"></i>Places</a>
+      <a href="contact.html" class="block md:inline-block text-white mx-3 font-bold hover:underline"><i class="fas fa-comment-dots mr-1"></i>Contact</a>
+    </nav>
+  </header>
+
+  <main class="p-8 max-w-7xl mx-auto fade-in relative">
+    <canvas id="bgCanvas" class="absolute inset-0 w-full h-full z-0 opacity-10 pointer-events-none"></canvas>
+    <section class="relative z-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+      <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300">
+        <h2 class="text-xl font-bold text-teal-600 mb-3 flex items-center"><i class="fas fa-bullseye mr-2"></i>Our Mission</h2>
+        <p class="text-gray-700">Our Fitness Tracking System empowers users to monitor, understand, and improve their health through intelligent data tracking and insightful feedback. Whether you're a beginner or a pro, we help you stay on track.</p>
+      </div>
+    
+      <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300">
+        <h3 class="text-xl font-bold text-teal-600 mb-3 flex items-center"><i class="fas fa-dumbbell mr-2"></i>What We Offer</h3>
+        <ul class="list-disc list-inside text-gray-700 space-y-1">
+          <li>Real-time activity tracking</li>
+          <li>Hydration and sleep monitoring</li>
+          <li>GPS for running, cycling, and walking</li>
+          <li>Progress reports and goal setting</li>
+          <li>Community challenges and tips</li>
+        </ul>
+      </div>
+
+      <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300">
+        <h3 class="text-xl font-bold text-teal-600 mb-3 flex items-center"><i class="fas fa-heartbeat mr-2"></i>Why It Matters</h3>
+        <p class="text-gray-700">With increasing awareness of lifestyle diseases, our platform makes it easy to maintain fitness routines and build healthy habits. Knowledge is power—and our system helps you harness it for your well-being.</p>
+      </div>
+
+      <section class="p-8 col-span-full">
+        <h2 class="text-2xl font-bold text-teal-600 mb-4">Background Music</h2>
+        <audio controls class="w-full">
+          <source src="C:\Users\Prabir\Downloads\mixkit-meditation-441.mp3" type="audio/mpeg">
+          Your browser does not support the audio element.
+        </audio>
+      </section>
+
+      <div class="col-span-full flex justify-center mt-4">
+        <a href="places.html" class="inline-block px-6 py-3 bg-teal-600 text-white font-bold rounded-md hover:bg-teal-700 transform hover:-translate-y-1 transition">
+          <i class="fas fa-arrow-right mr-2"></i>Explore Features
+        </a>
+      </div>
+
+    </section>
+  </main>
+
+  <footer class="bg-black text-white text-center p-6 text-sm mt-12">
+    <div class="mb-2">
+      <svg xmlns="http://www.w3.org/2000/svg" class="mx-auto h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 11c0 1.1-.9 2-2 2s-2-.9-2-2 2-3 2-5 2 2 2 5z" />
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 2a10 10 0 00-10 10c0 3.866 3.582 7.488 9.6 10.32.3.144.636.144.936 0C18.418 19.488 22 15.866 22 12A10 10 0 0012 2z" />
+      </svg>
+    </div>
+    &copy; 2025 Fitness Training
+  </footer>
+
+  <script>
+    const canvas = document.getElementById('bgCanvas');
+    const ctx = canvas.getContext('2d');
+    canvas.width = window.innerWidth;
+    canvas.height = 600;
+
+    const dots = Array.from({ length: 40 }, () => ({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      r: Math.random() * 3 + 1,
+      dx: (Math.random() - 0.5) * 2,
+      dy: (Math.random() - 0.5) * 2
+    }));
+
+    function animateDots() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      dots.forEach(dot => {
+        ctx.beginPath();
+        ctx.arc(dot.x, dot.y, dot.r, 0, Math.PI * 2);
+        ctx.fillStyle = '#14b8a6';
+        ctx.fill();
+        dot.x += dot.dx;
+        dot.y += dot.dy;
+        if (dot.x < 0 || dot.x > canvas.width) dot.dx *= -1;
+        if (dot.y < 0 || dot.y > canvas.height) dot.dy *= -1;
+      });
+      requestAnimationFrame(animateDots);
+    }
+
+    animateDots();
+  </script>
+</body>
+</html>
