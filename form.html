@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Fitness Tracker Registration</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .selected-option {
+      @apply bg-blue-600 text-white font-semibold ring-2 ring-blue-400;
+    }
+  </style>
+</head>
+<body class="bg-gray-900 text-white min-h-screen flex items-center justify-center px-4 py-10">
+
+  <main class="w-full max-w-4xl bg-gray-800 p-8 rounded-xl shadow-lg">
+    <h1 class="text-3xl font-bold text-center text-blue-400 mb-6"> Fitness Tracker Registration</h1>
+
+    <form id="fitnessForm" class="space-y-6">
+
+      <div>
+        <label for="name" class="block font-semibold mb-1">Full Name</label>
+        <input type="text" id="name" required
+               class="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded focus:ring-2 focus:ring-blue-400" />
+      </div>
+
+      <div>
+        <label for="email" class="block font-semibold mb-1">Email</label>
+        <input type="email" id="email" required
+               class="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded focus:ring-2 focus:ring-blue-400" />
+      </div>
+
+
+      <div>
+        <label for="age" class="block font-semibold mb-1">Age</label>
+        <input type="number" id="age" min="10" max="99" required
+               class="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded focus:ring-2 focus:ring-blue-400" />
+      </div>
+
+
+      <fieldset>
+        <legend class="block font-semibold mb-2">Gender</legend>
+        <div class="flex gap-4">
+          <label class="radio-option px-5 py-2 border border-gray-600 rounded cursor-pointer">
+            <input type="radio" name="gender" value="Male" required class="hidden"> Male
+          </label>
+          <label class="radio-option px-5 py-2 border border-gray-600 rounded cursor-pointer">
+            <input type="radio" name="gender" value="Female" required class="hidden"> Female
+          </label>
+          <label class="radio-option px-5 py-2 border border-gray-600 rounded cursor-pointer">
+            <input type="radio" name="gender" value="Other" required class="hidden"> Other
+          </label>
+        </div>
+      </fieldset>
+
+ 
+      <div>
+        <label for="goal" class="block font-semibold mb-1">Fitness Goal</label>
+        <select id="goal" required
+                class="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded focus:ring-2 focus:ring-blue-400">
+          <option value="">-- Select a Goal --</option>
+          <option value="Weight Loss">Weight Loss</option>
+          <option value="Muscle Gain">Muscle Gain</option>
+          <option value="Endurance">Endurance</option>
+          <option value="General Health">General Health</option>
+        </select>
+      </div>
+
+
+      <div>
+        <label for="level" class="block font-semibold mb-1">Current Fitness Level</label>
+        <select id="level" required
+                class="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded focus:ring-2 focus:ring-blue-400">
+          <option value="">-- Select Level --</option>
+          <option value="Beginner">Beginner</option>
+          <option value="Intermediate">Intermediate</option>
+          <option value="Advanced">Advanced</option>
+        </select>
+      </div>
+
+      <div>
+        <label for="targetWeight" class="block font-semibold mb-1">Target Weight (kg)</label>
+        <input type="number" id="targetWeight" min="30" max="200" required
+               class="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded focus:ring-2 focus:ring-blue-400" />
+      </div>
+
+      <fieldset>
+        <legend class="block font-semibold mb-2">Preferred Workout Time</legend>
+        <div class="flex flex-wrap gap-3">
+          <label class="time-option px-4 py-2 border border-gray-600 rounded cursor-pointer">
+            <input type="checkbox" name="time" value="Morning" class="hidden"> Morning
+          </label>
+          <label class="time-option px-4 py-2 border border-gray-600 rounded cursor-pointer">
+            <input type="checkbox" name="time" value="Afternoon" class="hidden"> Afternoon
+          </label>
+          <label class="time-option px-4 py-2 border border-gray-600 rounded cursor-pointer">
+            <input type="checkbox" name="time" value="Evening" class="hidden"> Evening
+          </label>
+        </div>
+      </fieldset>
+ 
+      <fieldset>
+        <legend class="block font-semibold mb-2">Preferred Workout Types</legend>
+        <div class="flex flex-wrap gap-3">
+          <label class="type-option px-4 py-2 border border-gray-600 rounded cursor-pointer">
+            <input type="checkbox" name="type" value="Yoga" class="hidden"> Yoga
+          </label>
+          <label class="type-option px-4 py-2 border border-gray-600 rounded cursor-pointer">
+            <input type="checkbox" name="type" value="Cardio" class="hidden"> Cardio
+          </label>
+          <label class="type-option px-4 py-2 border border-gray-600 rounded cursor-pointer">
+            <input type="checkbox" name="type" value="Strength" class="hidden"> Strength
+          </label>
+          <label class="type-option px-4 py-2 border border-gray-600 rounded cursor-pointer">
+            <input type="checkbox" name="type" value="CrossFit" class="hidden"> CrossFit
+          </label>
+        </div>
+      </fi//t>
+
+
+      <div>
+        <label for="duration" class="block font-semibold mb-1">Workout Duration Per Day (minutes)</label>
+        <input type="number" id="duration" min="10" max="300" required
+               class="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded focus:ring-2 focus:ring-blue-400"//     </div>
+
+
+      <div>
+        <button type="submit"
+                class="w-full bg-blue-500 hover:bg-blue-600 text-white py-3 rounded font-semibold">Submit</button>
+      </div>  </form>
+ 
+    <div id="output" class="hidden mt-8 p-6 bg-gray-700 border-l-4 border-blue-400 rounded space-y-2">
+      <h2 class="text-xl font-bold text-blue-300"> Submitted Details</h2>
+      <div id="outputContent" class="text-sm space-y-1"></div>
+    </div>
+  </main>
+
+  <script>
+    // Highlight selected checkboxes and radios
+    const toggleClass = (selector) => {
+      document.querySelectorAll(selector).forEach(label => {
+        label.addEventListener('click', () => {
+          const input = label.querySelector('input');
+          if (input.type === 'radio') {
+            // Remove from all other radios in group
+            document.querySelectorAll(selector).forEach(l => l.classList.remove('selected-option'));
+            input.checked = true;
+            label.classList.add('selected-option');
+          } else {
+            input.checked = !input.checked;
+            label.classList.toggle('selected-option', input.checked);
+          }
+        });
+      });
+    };
+    toggleClass('.time-option');
+    toggleClass('.type-option');
+    toggleClass('.radio-option');
+
+    // Handle form submission
+    document.getElementById('fitnessForm').addEventListener('submit', function (e) {
+      e.preventDefault(); //  Prevent default behavior
+
+      //  Get values
+      const name = document.querySelector('#name').value;
+      const email = document.querySelector('#email').value;
+      const age = document.querySelector('#age').value;
+      const gender = document.querySelector('input[name="gender"]:checked')?.value || 'Not selected';
+      const goal = document.querySelector('#goal').value;
+      const level = document.querySelector('#level').value;
+      const targetWeight = document.querySelector('#targetWeight').value;
+      const duration = document.querySelector('#duration').value;
+
+      const time = [...document.querySelectorAll('input[name="time"]:checked')]
+        .map(cb => cb.value).join(', ') || 'None';
+
+      const type = [...document.querySelectorAll('input[name="type"]:checked')]
+        .map(cb => cb.value).join(', ') || 'None';
+
+      //  Display output
+      const outputHTML = `
+        <p><strong>Name:</strong> ${name}</p>
+        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Age:</strong> ${age}</p>
+        <p><strong>Gender:</strong> ${gender}</p>
+        <p><strong>Fitness Goal:</strong> ${goal}</p>
+        <p><strong>Fitness Level:</strong> ${level}</p>
+        <p><strong>Target Weight:</strong> ${targetWeight} kg</p>
+        <p><strong>Workout Time:</strong> ${time}</p>
+        <p><strong>Workout Types:</strong> ${type}</p>
+        <p><strong>Daily Duration:</strong> ${duration} min</p>
+      `;
+
+      document.getElementById('outputContent').innerHTML = outputHTML;
+      document.getElementById('output').classList.remove('hidden');
+      document.getElementById('output').scrollIntoView({ behavior: 'smooth' });
+    });
+  </script>
+
+</body>
+</html>
